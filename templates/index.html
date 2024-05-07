@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/styling/home.css">
+    <title>Home</title>
+</head>
+<body>
+    <div class="first-slide">
+        <div class="navbar">
+            <img src="../static/images/logo.png" id="logo" alt="SAQ">
+            <h2 class='nav-element'>HOME</h2>
+            <h2 class='nav-element'>ABOUT</h2>
+            <h2 class='nav-element'>PROJECTS</h2>
+            <h2 class='nav-element'>CONTACT</h2>
+        </div>
+        <div class="self-intro">
+            <div id='one'>Hey There,</div>
+            <div id='two'>I'm <span class='thin-underline'>SYED AYMAN</span></div>
+            <div id='three'>An AI/ML Engineer</div>
+        </div>
+        <div class='info-button'>
+            GO TO PROJECTS
+        </div>
+    </div>
+    <div class="second-slide">
+        <div class='s2-header'>
+            WHO AM I
+        </div>
+    </div>
+</body>
+<script>
+    const navbar = document.querySelector('.navbar');
+    const firstSlide = document.querySelector('.first-slide');
+    const secondSlide = document.querySelector('.second-slide');
+
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        const firstSlideHeight = firstSlide.offsetHeight;
+
+        if (scrollPosition > firstSlideHeight-1 /*&& scrollPosition < secondSlide.offsetTop*/) {
+
+          navbar.classList.add('scrolled');
+          navbar.style.opacity = 0;
+          navbar.style.top = '-100px';
+
+          setTimeout(() => {
+            navbar.style.transition = 'opacity 0.5s ease-out, top 0.5s ease-out';
+            navbar.style.opacity = 1;
+            navbar.style.top = 0;
+          }, 100);
+
+        } else {
+          navbar.classList.remove('scrolled');
+          navbar.style.opacity = 1;
+          navbar.style.top = '-100px';
+        }
+      });
+</script>
+</html>
